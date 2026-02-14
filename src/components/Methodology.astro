@@ -61,15 +61,23 @@
 
           <!-- Matrix grid -->
           <div class="relative glass rounded-3xl p-8 border border-white/10">
-            <!-- Labels -->
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-bg-primary text-xs text-text-muted uppercase tracking-wider">
-              Urgent
+            <!-- Top Labels -->
+            <div class="absolute -top-3 left-8 right-8 flex justify-around">
+              <div class="px-3 py-1 bg-bg-primary text-xs text-text-muted uppercase tracking-wider">
+                Urgent
+              </div>
+              <div class="px-3 py-1 bg-bg-primary text-xs text-text-muted uppercase tracking-wider">
+                Not Urgent
+              </div>
             </div>
-            <div class="absolute -top-3 right-8 px-3 py-1 bg-bg-primary text-xs text-text-muted uppercase tracking-wider">
-              Not Urgent
-            </div>
-            <div class="absolute -left-3 top-1/4 -translate-y-1/2 px-2 py-1 bg-bg-primary text-xs text-text-muted uppercase tracking-wider rotate-[-90deg] origin-center">
-              Important
+            <!-- Left Labels -->
+            <div class="absolute -left-16 top-8 bottom-8 flex flex-col justify-around items-center">
+              <div class="px-2 py-1 bg-bg-primary text-xs text-text-muted uppercase tracking-wider rotate-[-90deg] origin-center whitespace-nowrap">
+                Important
+              </div>
+              <div class="px-2 py-1 bg-bg-primary text-xs text-text-muted uppercase tracking-wider rotate-[-90deg] origin-center whitespace-nowrap">
+                Not Important
+              </div>
             </div>
 
             <!-- Grid -->
