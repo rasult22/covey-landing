@@ -1,0 +1,376 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   FONTS - Satoshi & Cabinet Grotesk
+   ============================================ */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap');
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800&display=swap');
+  font-weight: 800;
+  font-display: swap;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+@layer base {
+  :root {
+    --grid-color: rgba(255, 255, 255, 0.03);
+    --grid-size: 60px;
+    --glow-color: rgba(34, 197, 94, 0.12);
+    --glow-color-strong: rgba(34, 197, 94, 0.25);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-bg-primary text-text-primary font-sans;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-white;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-bg-secondary;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-white/10 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-white/20;
+  }
+}
+
+/* ============================================
+   GRID BACKGROUND SYSTEM
+   ============================================ */
+@layer components {
+  .grid-bg {
+    position: relative;
+  }
+
+  .grid-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--grid-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: var(--grid-size) var(--grid-size);
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Animated grid dots overlay */
+  .grid-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at center, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: var(--grid-size) var(--grid-size);
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 20%, black 10%, transparent 60%);
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 20%, black 10%, transparent 60%);
+    animation: gridFade 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  /* Glow orbs */
+  .glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  .glow-orb-accent {
+    background: var(--glow-color-strong);
+  }
+
+  .glow-orb-green {
+    background: rgba(34, 197, 94, 0.15);
+  }
+
+  .glow-orb-red {
+    background: rgba(239, 68, 68, 0.1);
+  }
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+  }
+
+  .text-gradient-accent {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #22c55e 0%, #4ade80 50%, #22c55e 100%);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 40px rgba(34, 197, 94, 0.4), 0 0 80px rgba(34, 197, 94, 0.2);
+  }
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300;
+    @apply focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 focus:ring-offset-bg-primary;
+  }
+
+  .btn-primary {
+    @apply bg-white text-black;
+    @apply hover:bg-white/90 hover:shadow-lg hover:shadow-white/10;
+    @apply active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply bg-white/5 text-white border border-white/10;
+    @apply hover:bg-white/10 hover:border-white/20;
+    @apply active:scale-[0.98];
+  }
+
+  .btn-accent {
+    @apply bg-accent text-black font-semibold;
+    @apply hover:bg-accent-light;
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.3);
+  }
+
+  .btn-accent:hover {
+    box-shadow: 0 0 40px rgba(34, 197, 94, 0.5);
+  }
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+@layer components {
+  .card {
+    @apply relative bg-bg-secondary/50 border border-white/5 rounded-2xl p-6;
+    @apply backdrop-blur-sm;
+    @apply transition-all duration-500;
+  }
+
+  .card:hover {
+    @apply border-white/10 bg-bg-secondary/80;
+    box-shadow: 0 0 60px rgba(34, 197, 94, 0.05);
+  }
+
+  .card-glow {
+    @apply relative overflow-hidden;
+  }
+
+  .card-glow::before {
+    content: '';
+    @apply absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-500;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), transparent 50%);
+  }
+
+  .card-glow:hover::before {
+    @apply opacity-100;
+  }
+}
+
+/* ============================================
+   GLASS EFFECT
+   ============================================ */
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+
+  .glass-strong {
+    @apply bg-white/10 backdrop-blur-2xl border border-white/20;
+  }
+}
+
+/* ============================================
+   FEATURE ICONS
+   ============================================ */
+@layer components {
+  .feature-icon {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center;
+    @apply bg-gradient-to-br from-white/10 to-white/5;
+    @apply border border-white/10;
+  }
+
+  .feature-icon-accent {
+    @apply bg-gradient-to-br from-accent/20 to-accent/5;
+    @apply border-accent/20;
+  }
+}
+
+/* ============================================
+   iPHONE MOCKUP
+   ============================================ */
+@layer components {
+  .iphone-mockup {
+    @apply relative;
+    width: 280px;
+    height: 572px;
+  }
+
+  .iphone-frame {
+    @apply absolute inset-0 rounded-[3rem] border-[12px] border-[#1a1a1a];
+    background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 100%);
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.1),
+      0 25px 50px -12px rgba(0, 0, 0, 0.8),
+      inset 0 0 0 1px rgba(255,255,255,0.05);
+  }
+
+  .iphone-notch {
+    @apply absolute top-0 left-1/2 -translate-x-1/2;
+    width: 120px;
+    height: 28px;
+    background: #1a1a1a;
+    border-radius: 0 0 20px 20px;
+    z-index: 10;
+  }
+
+  .iphone-screen {
+    @apply absolute rounded-[2.25rem] overflow-hidden;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    background: #000;
+  }
+
+  .iphone-screen img {
+    @apply w-full h-full object-cover object-top;
+  }
+
+  /* Placeholder for screenshot */
+  .iphone-screen-placeholder {
+    @apply w-full h-full flex items-center justify-center;
+    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+  }
+}
+
+/* ============================================
+   ANIMATION UTILITIES
+   ============================================ */
+@layer utilities {
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+  .delay-700 { animation-delay: 700ms; }
+  .delay-800 { animation-delay: 800ms; }
+
+  .animate-on-scroll {
+    opacity: 0;
+  }
+
+  .animate-on-scroll.visible {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+}
+
+/* ============================================
+   SECTION SPACING
+   ============================================ */
+@layer components {
+  .section {
+    @apply py-24 md:py-32 lg:py-40;
+  }
+
+  .section-sm {
+    @apply py-16 md:py-24;
+  }
+
+  .container-tight {
+    @apply max-w-5xl mx-auto px-6;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto px-6;
+  }
+}
+
+/* ============================================
+   SPECIAL EFFECTS
+   ============================================ */
+@layer components {
+  /* Shimmer effect for loading states */
+  .shimmer {
+    @apply relative overflow-hidden;
+  }
+
+  .shimmer::after {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  /* Gradient border */
+  .gradient-border {
+    @apply relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    @apply absolute -inset-px rounded-2xl;
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.3), transparent 50%, rgba(34, 197, 94, 0.1));
+    z-index: -1;
+  }
+
+  /* Noise texture overlay */
+  .noise {
+    position: relative;
+  }
+
+  .noise::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

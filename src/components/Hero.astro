@@ -1,0 +1,104 @@
+---
+const appStoreLink = '#'; // TODO: Replace with actual App Store link
+---
+
+<section class="relative min-h-screen flex items-center pt-16 overflow-hidden grid-bg">
+  <!-- Glow orbs -->
+  <div class="glow-orb glow-orb-accent w-[600px] h-[600px] -top-40 -right-40 opacity-60"></div>
+  <div class="glow-orb glow-orb-green w-[400px] h-[400px] top-1/2 -left-40 opacity-40"></div>
+
+  <!-- Animated grid dots -->
+  <div class="grid-dots"></div>
+
+  <div class="container-wide relative z-10">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+      <!-- Left: Content -->
+      <div class="text-center lg:text-left">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 animate-fade-in">
+          <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+          <span class="text-sm text-text-secondary">Based on 7 Habits methodology</span>
+        </div>
+
+        <!-- Main heading -->
+        <h1 class="font-display text-display-lg md:text-[5.5rem] lg:text-[5rem] xl:text-[6rem] font-extrabold leading-[0.95] mb-6 animate-fade-in-up">
+          <span class="text-gradient">Plan by</span>
+          <br />
+          <span class="text-gradient-accent text-glow">Principles</span>
+        </h1>
+
+        <!-- Subheading -->
+        <p class="text-xl md:text-2xl text-text-secondary max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed animate-fade-in-up delay-200">
+          The only planner built on Stephen Covey's time-tested framework.
+          <span class="text-white">Quadrant Matrix. Big Rocks. A-B-C Priorities.</span>
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-fade-in-up delay-300">
+          <a href={appStoreLink} class="btn btn-primary text-base px-8 py-4">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            Download for iOS
+          </a>
+          <a href="#features" class="btn btn-secondary text-base px-8 py-4">
+            See how it works
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Social proof -->
+        <div class="mt-12 pt-8 border-t border-white/5 animate-fade-in delay-500">
+          <p class="text-sm text-text-muted mb-3">Built on the methodology from</p>
+          <div class="flex items-center justify-center lg:justify-start gap-3">
+            <span class="text-4xl md:text-5xl font-display font-extrabold text-white">40M+</span>
+            <span class="text-left text-text-secondary text-sm leading-tight">
+              copies sold<br />worldwide
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: iPhone Mockup -->
+      <div class="flex justify-center lg:justify-end animate-fade-in-up delay-400">
+        <div class="relative">
+          <!-- Glow behind phone -->
+          <div class="absolute inset-0 bg-gradient-radial from-accent/20 via-transparent to-transparent blur-3xl scale-150"></div>
+
+          <!-- iPhone Mockup -->
+          <div class="iphone-mockup animate-float relative">
+            <div class="iphone-frame"></div>
+            <div class="iphone-notch"></div>
+            <div class="iphone-screen">
+              <!-- Screenshot goes here - replace with your actual screenshot -->
+              <img
+                src="/screenshots/hero-screen.png"
+                alt="Principle Planner App Screenshot"
+                class="w-full h-full object-cover object-top"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <!-- Placeholder if no screenshot -->
+              <div class="iphone-screen-placeholder hidden flex-col items-center justify-center text-center p-6">
+                <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4">
+                  <svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <p class="text-text-muted text-xs">Add screenshot to<br/>/public/screenshots/hero-screen.png</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float hidden md:block">
+    <div class="w-6 h-10 rounded-full border-2 border-white/20 flex items-start justify-center p-2">
+      <div class="w-1 h-2 rounded-full bg-white/40 animate-pulse"></div>
+    </div>
+  </div>
+</section>

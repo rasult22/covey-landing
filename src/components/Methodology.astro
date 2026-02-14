@@ -1,0 +1,129 @@
+---
+// Visual representation of the Quadrant Matrix
+---
+
+<section id="methodology" class="section relative overflow-hidden">
+  <div class="container-wide relative z-10">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <!-- Left: Content -->
+      <div class="animate-on-scroll">
+        <span class="inline-block text-sm font-medium text-accent uppercase tracking-wider mb-4">
+          The Method
+        </span>
+        <h2 class="font-display text-display-sm md:text-display font-extrabold text-white mb-6">
+          Time Management<br />
+          <span class="text-gradient-accent text-glow">Matrix</span>
+        </h2>
+        <p class="text-text-secondary text-lg mb-8 leading-relaxed">
+          The foundation of effective planning. Divide your tasks into four quadrants based on
+          <span class="text-white">urgency</span> and <span class="text-white">importance</span>.
+          Then focus where it matters most.
+        </p>
+
+        <!-- Quadrant legend -->
+        <div class="space-y-4">
+          <div class="flex items-start gap-4">
+            <div class="w-3 h-3 rounded-sm bg-red-500 mt-1.5 flex-shrink-0"></div>
+            <div>
+              <span class="text-white font-medium">Quadrant I</span>
+              <span class="text-text-muted ml-2">— Urgent & Important. Crises, deadlines.</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-3 h-3 rounded-sm bg-green-500 mt-1.5 flex-shrink-0"></div>
+            <div>
+              <span class="text-white font-medium">Quadrant II</span>
+              <span class="text-accent ml-2">— Important, Not Urgent. This is where growth happens.</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-3 h-3 rounded-sm bg-amber-500 mt-1.5 flex-shrink-0"></div>
+            <div>
+              <span class="text-white font-medium">Quadrant III</span>
+              <span class="text-text-muted ml-2">— Urgent, Not Important. Interruptions, some calls.</span>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-3 h-3 rounded-sm bg-gray-500 mt-1.5 flex-shrink-0"></div>
+            <div>
+              <span class="text-white font-medium">Quadrant IV</span>
+              <span class="text-text-muted ml-2">— Neither. Time wasters, escape activities.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Visual Matrix -->
+      <div class="animate-on-scroll delay-200">
+        <div class="relative">
+          <!-- Glow behind -->
+          <div class="absolute inset-0 bg-gradient-radial from-accent/10 via-transparent to-transparent blur-3xl"></div>
+
+          <!-- Matrix grid -->
+          <div class="relative glass rounded-3xl p-8 border border-white/10">
+            <!-- Labels -->
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-bg-primary text-xs text-text-muted uppercase tracking-wider">
+              Urgent
+            </div>
+            <div class="absolute -top-3 right-8 px-3 py-1 bg-bg-primary text-xs text-text-muted uppercase tracking-wider">
+              Not Urgent
+            </div>
+            <div class="absolute -left-3 top-1/4 -translate-y-1/2 px-2 py-1 bg-bg-primary text-xs text-text-muted uppercase tracking-wider rotate-[-90deg] origin-center">
+              Important
+            </div>
+
+            <!-- Grid -->
+            <div class="grid grid-cols-2 gap-3">
+              <!-- Q1 -->
+              <div class="aspect-square rounded-2xl bg-red-500/10 border border-red-500/20 p-4 flex flex-col justify-between group hover:bg-red-500/20 transition-colors">
+                <span class="text-2xl font-display font-bold text-red-500">I</span>
+                <div>
+                  <p class="text-sm text-white font-medium">Do First</p>
+                  <p class="text-xs text-text-muted">Crises & Deadlines</p>
+                </div>
+              </div>
+
+              <!-- Q2 -->
+              <div class="aspect-square rounded-2xl bg-green-500/10 border border-green-500/30 p-4 flex flex-col justify-between group hover:bg-green-500/20 transition-colors relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent"></div>
+                <span class="text-2xl font-display font-bold text-green-500 relative z-10">II</span>
+                <div class="relative z-10">
+                  <p class="text-sm text-white font-medium">Schedule</p>
+                  <p class="text-xs text-green-400">Growth & Prevention</p>
+                </div>
+                <!-- Highlight indicator -->
+                <div class="absolute top-2 right-2 w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+              </div>
+
+              <!-- Q3 -->
+              <div class="aspect-square rounded-2xl bg-amber-500/10 border border-amber-500/20 p-4 flex flex-col justify-between group hover:bg-amber-500/20 transition-colors">
+                <span class="text-2xl font-display font-bold text-amber-500">III</span>
+                <div>
+                  <p class="text-sm text-white font-medium">Delegate</p>
+                  <p class="text-xs text-text-muted">Interruptions</p>
+                </div>
+              </div>
+
+              <!-- Q4 -->
+              <div class="aspect-square rounded-2xl bg-gray-500/10 border border-gray-500/20 p-4 flex flex-col justify-between group hover:bg-gray-500/20 transition-colors">
+                <span class="text-2xl font-display font-bold text-gray-500">IV</span>
+                <div>
+                  <p class="text-sm text-white font-medium">Eliminate</p>
+                  <p class="text-xs text-text-muted">Time Wasters</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Focus indicator -->
+            <div class="mt-6 flex items-center justify-center gap-2 text-sm text-green-400">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+              <span>Focus on Quadrant II for long-term success</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

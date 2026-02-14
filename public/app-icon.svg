@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f5f5f5"/>
+    </linearGradient>
+    <!-- Subtle shadow for depth -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- White rounded square background (iOS style) -->
+  <rect width="1024" height="1024" rx="224" fill="url(#bg-gradient)"/>
+
+  <!-- 2x2 Eisenhower Matrix with padding -->
+  <!-- Q2 - Green (top-left, Important/Not Urgent) - THE FOCUS -->
+  <rect x="128" y="128" width="352" height="352" rx="48" fill="#22c55e" filter="url(#shadow)"/>
+
+  <!-- Q1 - Red (top-right, Important/Urgent) -->
+  <rect x="544" y="128" width="352" height="352" rx="48" fill="#ef4444" filter="url(#shadow)"/>
+
+  <!-- Q3 - Amber (bottom-left, Not Important/Urgent) -->
+  <rect x="128" y="544" width="352" height="352" rx="48" fill="#f59e0b" filter="url(#shadow)"/>
+
+  <!-- Q4 - Gray (bottom-right, Not Important/Not Urgent) -->
+  <rect x="544" y="544" width="352" height="352" rx="48" fill="#6b7280" filter="url(#shadow)"/>
+</svg>

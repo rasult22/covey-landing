@@ -1,0 +1,72 @@
+---
+const appStoreLink = '#'; // TODO: Replace with actual App Store link
+---
+
+<section class="section relative overflow-hidden grid-bg">
+  <!-- Glow orbs -->
+  <div class="glow-orb glow-orb-accent w-[800px] h-[800px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-40"></div>
+
+  <!-- Animated grid dots -->
+  <div class="grid-dots"></div>
+
+  <div class="container-tight relative z-10 text-center">
+    <div class="animate-on-scroll">
+      <!-- Icon - 2x2 Eisenhower Matrix -->
+      <div class="w-16 h-16 rounded-2xl bg-white flex items-center justify-center mx-auto mb-8 shadow-lg shadow-white/20 p-3">
+        <svg class="w-full h-full" viewBox="0 0 16 16" fill="none">
+          <!-- Q2 - Green (top-left) -->
+          <rect x="1" y="1" width="6" height="6" fill="#22c55e" rx="1"/>
+          <!-- Q1 - Red (top-right) -->
+          <rect x="9" y="1" width="6" height="6" fill="#ef4444" rx="1"/>
+          <!-- Q3 - Amber (bottom-left) -->
+          <rect x="1" y="9" width="6" height="6" fill="#f59e0b" rx="1"/>
+          <!-- Q4 - Gray (bottom-right) -->
+          <rect x="9" y="9" width="6" height="6" fill="#6b7280" rx="1"/>
+        </svg>
+      </div>
+
+      <!-- Heading -->
+      <h2 class="font-display text-display-sm md:text-display font-extrabold text-white mb-6">
+        Start planning<br />
+        <span class="text-gradient-accent text-glow">with purpose</span>
+      </h2>
+
+      <!-- Subheading -->
+      <p class="text-xl text-text-secondary mb-10 max-w-lg mx-auto">
+        Download free. Upgrade when you're ready.
+        <br />
+        <span class="text-white">Your principles-based planner awaits.</span>
+      </p>
+
+      <!-- CTA Button -->
+      <a href={appStoreLink} class="btn btn-primary text-lg px-10 py-5 inline-flex">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+        </svg>
+        Download for iOS
+      </a>
+
+      <!-- Trust badges -->
+      <div class="flex items-center justify-center gap-8 mt-12 text-sm text-text-muted">
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+          <span>Privacy-first</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+          <span>Native iOS</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+          </svg>
+          <span>Free to start</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

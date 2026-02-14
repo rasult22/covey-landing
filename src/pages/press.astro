@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const facts = [
+  { label: 'App Name', value: 'Principle Planner' },
+  { label: 'Tagline', value: 'Plan by Principles, Not Panic' },
+  { label: 'Category', value: 'Productivity' },
+  { label: 'Platform', value: 'iOS (iPhone & iPad)' },
+  { label: 'Price', value: 'Free with Pro upgrade' },
+];
+
+const features = [
+  'Time Management Matrix (4 Quadrants)',
+  'Big Rocks Weekly Planning',
+  'A-B-C Priority System',
+  'Mission, Values & Roles',
+  'Long-term Goals Tracking',
+  'Local-first Privacy',
+];
+---
+
+<Layout title="Press Kit — Principle Planner">
+  <Header />
+  <main class="pt-32 pb-24">
+    <div class="container-tight max-w-4xl">
+      <!-- Header -->
+      <div class="text-center mb-16">
+        <span class="inline-block text-sm font-medium text-accent uppercase tracking-wider mb-4">
+          Press Kit
+        </span>
+        <h1 class="font-display text-display-sm md:text-display font-extrabold text-white mb-6">
+          Media Resources
+        </h1>
+        <p class="text-text-secondary text-lg">
+          Everything you need to write about Principle Planner.
+        </p>
+      </div>
+
+      <!-- Quick facts -->
+      <section class="mb-16">
+        <h2 class="text-xl font-semibold text-white mb-6">Quick Facts</h2>
+        <div class="card">
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {facts.map(fact => (
+              <div>
+                <p class="text-text-muted text-sm mb-1">{fact.label}</p>
+                <p class="text-white font-medium">{fact.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Description -->
+      <section class="mb-16">
+        <h2 class="text-xl font-semibold text-white mb-6">About</h2>
+        <div class="card space-y-4 text-text-secondary leading-relaxed">
+          <p>
+            <strong class="text-white">Principle Planner</strong> is the only task manager built specifically around Stephen Covey's 7 Habits methodology.
+          </p>
+          <p>
+            While other apps focus on getting things done, Principle Planner helps you do the <em>right</em> things.
+            It implements Covey's complete system: the Time Management Matrix for visualizing tasks by urgency and importance,
+            Big Rocks planning to schedule priorities first, and Foundation elements (Mission, Values, Roles) to keep you aligned with what matters most.
+          </p>
+          <p>
+            With a native iOS experience, dark mode interface, and local-first privacy approach,
+            Principle Planner is designed for people who want to plan their life by principles, not panic.
+          </p>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section class="mb-16">
+        <h2 class="text-xl font-semibold text-white mb-6">Key Features</h2>
+        <div class="card">
+          <ul class="grid md:grid-cols-2 gap-4">
+            {features.map(feature => (
+              <li class="flex items-center gap-3">
+                <div class="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-3 h-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span class="text-text-secondary">{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <!-- Downloads -->
+      <section class="mb-16">
+        <h2 class="text-xl font-semibold text-white mb-6">Downloads</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="card">
+            <h3 class="text-lg font-semibold text-white mb-2">App Icon</h3>
+            <p class="text-text-secondary text-sm mb-4">High-resolution app icon for press use (1024x1024px)</p>
+            <a href="#" class="text-accent text-sm hover:underline">Download PNG</a>
+          </div>
+          <div class="card">
+            <h3 class="text-lg font-semibold text-white mb-2">Screenshots</h3>
+            <p class="text-text-secondary text-sm mb-4">High-resolution screenshots for press use</p>
+            <a href="#" class="text-accent text-sm hover:underline">Download ZIP</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section>
+        <h2 class="text-xl font-semibold text-white mb-6">Contact</h2>
+        <div class="card">
+          <p class="text-text-secondary mb-4">For press inquiries, interviews, or additional materials:</p>
+          <a href="mailto:press@principleplanner.app" class="text-accent text-lg font-medium hover:underline">
+            press@principleplanner.app
+          </a>
+          <p class="text-text-muted text-sm mt-4">We typically respond within 24 hours.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+  <Footer />
+</Layout>

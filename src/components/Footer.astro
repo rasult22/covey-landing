@@ -1,0 +1,67 @@
+---
+const currentYear = new Date().getFullYear();
+
+const links = [
+  { href: '/privacy', label: 'Privacy' },
+  { href: '/terms', label: 'Terms' },
+  { href: '/press', label: 'Press' },
+];
+---
+
+<footer class="border-t border-white/5 bg-bg-secondary/30">
+  <div class="container-wide py-12">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+      <!-- Logo & copyright -->
+      <div class="flex items-center gap-6">
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center p-1.5">
+            <!-- 2x2 Eisenhower Matrix icon -->
+            <svg class="w-full h-full" viewBox="0 0 16 16" fill="none">
+              <!-- Q2 - Green (top-left) -->
+              <rect x="1" y="1" width="6" height="6" fill="#22c55e" rx="1"/>
+              <!-- Q1 - Red (top-right) -->
+              <rect x="9" y="1" width="6" height="6" fill="#ef4444" rx="1"/>
+              <!-- Q3 - Amber (bottom-left) -->
+              <rect x="1" y="9" width="6" height="6" fill="#f59e0b" rx="1"/>
+              <!-- Q4 - Gray (bottom-right) -->
+              <rect x="9" y="9" width="6" height="6" fill="#6b7280" rx="1"/>
+            </svg>
+          </div>
+          <span class="font-semibold text-white group-hover:text-accent transition-colors">
+            Principle Planner
+          </span>
+        </a>
+        <span class="text-text-muted text-sm">
+          &copy; {currentYear}
+        </span>
+      </div>
+
+      <!-- Links -->
+      <nav class="flex items-center gap-6">
+        {links.map(link => (
+          <a
+            href={link.href}
+            class="text-sm text-text-secondary hover:text-white transition-colors"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Social -->
+      <div class="flex items-center gap-4">
+        <a
+          href="https://twitter.com/principleplanner"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors"
+          aria-label="Twitter"
+        >
+          <svg class="w-4 h-4 text-text-secondary" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

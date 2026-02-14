@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff"/>
+      <stop offset="100%" style="stop-color:#f0f0f0"/>
+    </linearGradient>
+  </defs>
+  <!-- White rounded square background -->
+  <rect width="32" height="32" rx="8" fill="url(#bg)"/>
+  <!-- 2x2 Eisenhower Matrix -->
+  <!-- Q2 - Green (top-left, Important/Not Urgent) -->
+  <rect x="4" y="4" width="11" height="11" rx="2" fill="#22c55e"/>
+  <!-- Q1 - Red (top-right, Important/Urgent) -->
+  <rect x="17" y="4" width="11" height="11" rx="2" fill="#ef4444"/>
+  <!-- Q3 - Amber (bottom-left, Not Important/Urgent) -->
+  <rect x="4" y="17" width="11" height="11" rx="2" fill="#f59e0b"/>
+  <!-- Q4 - Gray (bottom-right, Not Important/Not Urgent) -->
+  <rect x="17" y="17" width="11" height="11" rx="2" fill="#6b7280"/>
+</svg>

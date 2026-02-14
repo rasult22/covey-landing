@@ -1,0 +1,63 @@
+---
+const navLinks = [
+  { href: '#features', label: 'Features' },
+  { href: '#methodology', label: 'Methodology' },
+  { href: '#faq', label: 'FAQ' },
+];
+
+const appStoreLink = '#'; // TODO: Replace with actual App Store link
+---
+
+<header class="fixed top-0 left-0 right-0 z-50">
+  <div class="glass border-b border-white/5">
+    <nav class="container-wide flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center p-1.5">
+          <!-- 2x2 Eisenhower Matrix icon -->
+          <svg class="w-full h-full" viewBox="0 0 16 16" fill="none">
+            <!-- Grid lines -->
+            <line x1="8" y1="1" x2="8" y2="15" stroke="#111" stroke-width="1"/>
+            <line x1="1" y1="8" x2="15" y2="8" stroke="#111" stroke-width="1"/>
+            <!-- Q1 - Red (top-right) -->
+            <rect x="9" y="1" width="6" height="6" fill="#ef4444" rx="1"/>
+            <!-- Q2 - Green (top-left) -->
+            <rect x="1" y="1" width="6" height="6" fill="#22c55e" rx="1"/>
+            <!-- Q3 - Amber (bottom-left) -->
+            <rect x="1" y="9" width="6" height="6" fill="#f59e0b" rx="1"/>
+            <!-- Q4 - Gray (bottom-right) -->
+            <rect x="9" y="9" width="6" height="6" fill="#6b7280" rx="1"/>
+          </svg>
+        </div>
+        <span class="font-semibold text-white group-hover:text-accent transition-colors">
+          Principle Planner
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-8">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class="text-sm text-text-secondary hover:text-white transition-colors"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- CTA -->
+      <div class="flex items-center gap-4">
+        <a
+          href={appStoreLink}
+          class="btn btn-primary text-sm py-2 px-4"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+          Download
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>

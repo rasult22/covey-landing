@@ -1,0 +1,99 @@
+---
+const features = [
+  { name: 'Quadrant Matrix', us: true, others: 'partial' },
+  { name: 'Big Rocks Planning', us: true, others: false },
+  { name: 'Mission & Values', us: true, others: false },
+  { name: 'Life Roles', us: true, others: false },
+  { name: 'A-B-C Priorities', us: true, others: 'partial' },
+  { name: 'Weekly Planning', us: true, others: true },
+  { name: 'Local-First Privacy', us: true, others: 'partial' },
+  { name: 'Native iOS', us: true, others: 'partial' },
+];
+---
+
+<section class="section relative overflow-hidden bg-bg-secondary/30">
+  <div class="container-tight relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-16 animate-on-scroll">
+      <span class="inline-block text-sm font-medium text-accent uppercase tracking-wider mb-4">
+        Why Us
+      </span>
+      <h2 class="font-display text-display-sm md:text-display font-extrabold text-white mb-6">
+        Not another<br />
+        <span class="text-gradient">todo app</span>
+      </h2>
+      <p class="text-text-secondary text-lg max-w-xl mx-auto">
+        Generic task managers help you get things done.
+        <span class="text-white">Principle Planner helps you do the right things.</span>
+      </p>
+    </div>
+
+    <!-- Comparison table -->
+    <div class="animate-on-scroll delay-200">
+      <div class="glass rounded-3xl overflow-hidden border border-white/10">
+        <!-- Table header -->
+        <div class="grid grid-cols-3 gap-4 p-6 border-b border-white/5 bg-white/5">
+          <div class="text-sm text-text-muted font-medium">Feature</div>
+          <div class="text-center">
+            <span class="inline-flex items-center gap-2 text-sm font-semibold text-accent">
+              <span class="w-2 h-2 rounded-full bg-accent"></span>
+              Principle Planner
+            </span>
+          </div>
+          <div class="text-center text-sm text-text-muted font-medium">Others</div>
+        </div>
+
+        <!-- Table rows -->
+        <div class="divide-y divide-white/5">
+          {features.map((feature, index) => (
+            <div
+              class="grid grid-cols-3 gap-4 p-6 hover:bg-white/5 transition-colors group"
+              style={`animation-delay: ${index * 50}ms`}
+            >
+              <div class="text-white font-medium group-hover:text-accent transition-colors">
+                {feature.name}
+              </div>
+              <div class="flex justify-center">
+                {feature.us && (
+                  <div class="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
+                    <svg class="w-4 h-4 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                )}
+              </div>
+              <div class="flex justify-center">
+                {feature.others === true && (
+                  <div class="w-6 h-6 rounded-full bg-green-500/10 flex items-center justify-center">
+                    <svg class="w-4 h-4 text-green-500/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                )}
+                {feature.others === 'partial' && (
+                  <div class="w-6 h-6 rounded-full bg-gray-500/10 flex items-center justify-center">
+                    <svg class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M18 12H6" />
+                    </svg>
+                  </div>
+                )}
+                {feature.others === false && (
+                  <div class="w-6 h-6 rounded-full bg-red-500/10 flex items-center justify-center">
+                    <svg class="w-4 h-4 text-red-500/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Bottom note -->
+      <p class="text-center text-sm text-text-muted mt-6">
+        * Comparison based on popular task management apps (Todoist, Things, TickTick, etc.)
+      </p>
+    </div>
+  </div>
+</section>

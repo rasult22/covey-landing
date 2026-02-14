@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Privacy Policy — Principle Planner">
+  <Header />
+  <main class="pt-32 pb-24">
+    <article class="container-tight prose prose-invert prose-lg max-w-3xl">
+      <h1 class="font-display text-display-sm font-extrabold text-white mb-4">Privacy Policy</h1>
+      <p class="text-text-muted text-sm mb-12">Last updated: February 2025</p>
+
+      <div class="space-y-8 text-text-secondary">
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-4">Overview</h2>
+          <p class="leading-relaxed">
+            <strong class="text-white">Your privacy is our priority.</strong> Principle Planner is designed with privacy in mind.
+            We store your data locally on your device and do not collect or transmit your personal planning information to any servers.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-4">What Data We Store</h2>
+          <p class="leading-relaxed mb-4">All your planning data is stored locally on your iPhone or iPad:</p>
+          <ul class="list-disc list-inside space-y-2 text-text-secondary">
+            <li>Mission statement</li>
+            <li>Personal values</li>
+            <li>Life roles</li>
+            <li>Long-term goals</li>
+            <li>Daily tasks and priorities</li>
+            <li>Weekly big rocks</li>
+            <li>Settings and preferences</li>
+          </ul>
+          <p class="mt-4 text-white font-medium">This data never leaves your device unless you explicitly export it.</p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-4">What We Don't Collect</h2>
+          <p class="leading-relaxed mb-4">We do NOT collect:</p>
+          <ul class="list-disc list-inside space-y-2 text-text-secondary">
+            <li>Your personal planning data</li>
+            <li>Task content or descriptions</li>
+            <li>Goals or mission statements</li>
+            <li>Location data</li>
+            <li>Contact information</li>
+            <li>Usage analytics or telemetry</li>
+            <li>Device identifiers for tracking</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-4">Subscriptions (RevenueCat)</h2>
+          <p class="leading-relaxed mb-4">
+            If you choose to subscribe to Principle Planner Pro, your subscription is processed through Apple's App Store and managed via RevenueCat.
+          </p>
+          <p class="leading-relaxed">
+            RevenueCat may collect anonymous subscription status and purchase history for subscription management.
+            For details, see their <a href="https://www.revenuecat.com/privacy" class="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-4">Data Security</h2>
+          <p class="leading-relaxed">
+            Your planning data is stored securely on your device using iOS's built-in security features.
+            We recommend enabling device passcode/Face ID and keeping your iOS version up to date.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-white mb-4">Contact Us</h2>
+          <p class="leading-relaxed">
+            If you have any questions about this Privacy Policy, please contact us at:
+            <a href="mailto:privacy@principleplanner.app" class="text-accent hover:underline">privacy@principleplanner.app</a>
+          </p>
+        </section>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</Layout>
