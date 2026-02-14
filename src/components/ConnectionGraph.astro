@@ -25,12 +25,13 @@
       <div class="absolute inset-0 bg-gradient-radial from-accent/10 via-transparent to-transparent blur-3xl scale-125"></div>
 
       <!-- SVG Graph -->
-      <div class="relative glass rounded-3xl p-4 md:p-8 border border-white/10" id="graph-container">
-        <svg
-          viewBox="0 0 800 600"
-          class="w-full h-auto"
-          id="connection-graph"
-        >
+      <div class="relative glass rounded-3xl p-4 md:p-8 border border-white/10">
+        <div id="graph-container" class="relative overflow-hidden rounded-2xl cursor-grab active:cursor-grabbing">
+          <svg
+            viewBox="0 0 800 600"
+            class="w-full h-auto"
+            id="connection-graph"
+          >
           <defs>
             <!-- Gradients for links -->
             <linearGradient id="link-mission-value" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -250,6 +251,7 @@
             </g>
           </g>
         </svg>
+        </div>
 
         <!-- Legend -->
         <div class="flex flex-wrap justify-center gap-4 md:gap-6 mt-6 text-xs md:text-sm">
@@ -366,16 +368,16 @@
       }
     }, { passive: false });
 
-    // Mouse pan
+    // Mouse pan - start only on container
     container.addEventListener('mousedown', (e) => {
       if (e.button === 0) {
         isPanning = true;
         startPoint = { x: e.clientX, y: e.clientY };
-        container.style.cursor = 'grabbing';
+        e.preventDefault();
       }
     });
 
-    window.addEventListener('mousemove', (e) => {
+    container.addEventListener('mousemove', (e) => {
       if (!isPanning) return;
 
       const rect = svg.getBoundingClientRect();
@@ -389,9 +391,12 @@
       updateViewBox();
     });
 
-    window.addEventListener('mouseup', () => {
+    container.addEventListener('mouseup', () => {
       isPanning = false;
-      container.style.cursor = 'grab';
+    });
+
+    container.addEventListener('mouseleave', () => {
+      isPanning = false;
     });
 
     // Touch support
@@ -472,8 +477,6 @@
       updateViewBox();
     });
 
-    // Set initial cursor
-    container.style.cursor = 'grab';
   }
 </script>
 
