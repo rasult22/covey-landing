@@ -9,9 +9,88 @@ import Comparison from '../components/Comparison.astro';
 import FAQ from '../components/FAQ.astro';
 import CTA from '../components/CTA.astro';
 import Footer from '../components/Footer.astro';
+
+const softwareAppSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Principle Planner",
+  "operatingSystem": "iOS",
+  "applicationCategory": "ProductivityApplication",
+  "description": "The only task management app built on Stephen Covey's 7 Habits methodology. Features Quadrant Matrix, Big Rocks weekly planning, A-B-C priorities, and mission/values/roles foundation.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "url": "https://apps.apple.com/ru/app/principle-centered-planner/id6757302815",
+  "screenshot": "https://rasult22.github.io/covey-landing/screenshots/hero-screen.jpg",
+  "featureList": "Quadrant Matrix, Big Rocks Weekly Planning, A-B-C Priority System, Mission Statement, Values & Roles, Long-term Goals Tracking, Local-first Privacy"
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the Quadrant Matrix?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Time Management Matrix divides tasks into four quadrants based on urgency and importance. Quadrant II (important but not urgent) is where you should spend most of your time — this is where long-term success happens. It's the foundation of Covey's time management philosophy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are \"Big Rocks\"?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Big Rocks are your most important weekly priorities. The metaphor comes from Covey's famous demonstration: if you put big rocks in a jar first, the sand and gravel (small tasks) can fill around them. But if you start with sand, the big rocks won't fit. Schedule your priorities first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the app free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! The core features are completely free. Principle Planner Pro unlocks unlimited tasks, goals, advanced analytics, and achievements. Try it free and upgrade when you're ready."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which platforms are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Currently iOS (iPhone and iPad). We've built a native iOS experience with smooth animations and intuitive gestures. Android is on our roadmap."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is this different from Todoist or Things?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unlike generic task managers, Principle Planner is built specifically around Covey's 7 Habits methodology. It includes the Quadrant Matrix, Big Rocks planning, and Foundation elements (Mission, Values, Roles) — features designed to help you focus on what truly matters, not just get things done."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is my data stored?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All your data is stored locally on your device. We don't collect or store your personal planning data on any servers. Your mission, values, goals, and tasks stay private on your iPhone or iPad."
+      }
+    }
+  ]
+};
+
+const jsonLd = [softwareAppSchema, faqSchema];
 ---
 
-<Layout title="Principle Planner — Plan by Principles, Not Panic">
+<Layout
+  title="Principle Planner — Plan by Principles, Not Panic"
+  description="The only planner built on Stephen Covey's 7 Habits methodology. Quadrant Matrix, Big Rocks weekly planning, A-B-C priorities, and mission/values/roles — all in one iOS app."
+  canonicalPath="/"
+  jsonLd={jsonLd}
+>
   <Header />
   <main>
     <Hero />
