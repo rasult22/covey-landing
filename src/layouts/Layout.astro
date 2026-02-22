@@ -2,14 +2,39 @@
 interface Props {
   title: string;
   description?: string;
+  canonicalPath?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
   title,
-  description = "Plan your life by principles with the only planner built on Stephen Covey's 7 Habits methodology."
+  description = "Plan your life by principles with the only planner built on Stephen Covey's 7 Habits methodology. Quadrant Matrix, Big Rocks planning, and A-B-C priorities.",
+  canonicalPath,
+  ogImage,
+  noindex = false,
+  jsonLd,
 } = Astro.props;
 
-const siteUrl = 'https://principleplanner.app';
+const siteUrl = 'https://rasult22.github.io/covey-landing';
+const canonicalUrl = canonicalPath ? `${siteUrl}${canonicalPath}` : `${siteUrl}${Astro.url.pathname.replace('/covey-landing', '')}`;
+const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/og-image.svg`;
+
+// Default Organization schema
+const defaultJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Principle Planner",
+  "url": siteUrl,
+  "logo": `${siteUrl}/favicon.svg`,
+  "description": "The only task management app built on Stephen Covey's 7 Habits methodology.",
+  "sameAs": [
+    "https://twitter.com/principleplanner"
+  ]
+};
+
+const jsonLdData = jsonLd ? (Array.isArray(jsonLd) ? [defaultJsonLd, ...jsonLd] : [defaultJsonLd, jsonLd]) : [defaultJsonLd];
 ---
 
 <!doctype html>
@@ -17,7 +42,17 @@ const siteUrl = 'https://principleplanner.app';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <meta name="author" content="Principle Planner" />
+    <meta name="theme-color" content="#6C5CE7" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalUrl} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
@@ -27,22 +62,32 @@ const siteUrl = 'https://principleplanner.app';
     />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/covey-landing/favicon.svg" />
+    <link rel="apple-touch-icon" href="/covey-landing/app-icon.svg" />
 
-    <!-- Open Graph -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={`${siteUrl}/og-image.png`} />
-    <meta property="og:url" content={siteUrl} />
-    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Principle Planner" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`${siteUrl}/og-image.png`} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:site" content="@principleplanner" />
 
-    <title>{title}</title>
+    <!-- Structured Data (JSON-LD) -->
+    {jsonLdData.map((ld) => (
+      <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+    ))}
   </head>
   <body class="noise">
     <slot />

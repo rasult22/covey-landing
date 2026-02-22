@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rasult22.github.io/covey-landing/sitemap-index.xml
